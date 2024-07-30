@@ -37,7 +37,7 @@ function Remedies2() {
     return text.substring(0, length) + '...';
   };
   
-  const maxLength = 200; // Set your desired maximum length
+  const maxLength = 50; // Set your desired maximum length
   
     return (
         <div className="Researches-wrapper">

@@ -60,7 +60,7 @@ export const ContextProvider = ({ children }) => {
       setToken(data.token);
       setToken(data.token);
       
-        window.location.href = '/admin';
+        window.location.href = '/login';
       
      
     },
