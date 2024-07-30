@@ -46,8 +46,8 @@
 .home-nav {
     display: flex;
     align-items: center;
-    justify-content:space-around;
-    padding: 10px 5px;
+    justify-content:space-between;
+    padding: 10px 70px;
     box-shadow: var(--box-shadow);
     /* background-color: #509bfb; */
 }
@@ -181,12 +181,13 @@
 /* footer design */
 /* Footer design */
 .footer-wrapper {
-     background-color: var(--bs-light);
+     background-color: var(--bs-white);
     /* background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity)) ; */
     height: 80vh;
     padding-top: 40px;
     padding-left: 60px;
     padding-right: 60px;
+    box-shadow: var(--box-shadow);
 }
 .footer-container {
     display: flex;
@@ -232,7 +233,7 @@ footer {
     text-align: center;
     margin-top: 50px;
     padding-top: 30px;
-    border-top: 1px solid lightgrey;
+    /* border-top: 1px solid lightgrey; */
 }
 
 /* Signup design */

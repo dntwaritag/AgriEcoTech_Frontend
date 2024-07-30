@@ -46,7 +46,7 @@ export const ContextProvider = ({ children }) => {
   // Signup mutation
   const SignupMutation = useMutation({
     mutationFn: async (data) => {
-      const res = await axiosclient.post("/register", data);
+      const res = await axiosclient.post("/auth/register", data);
       console.log('Signup response:', res.data);
       return res.data;
     },
@@ -59,19 +59,17 @@ export const ContextProvider = ({ children }) => {
       setUserState(data.user);
       setToken(data.token);
       setToken(data.token);
-      if (data.user.is_admin === 1) {
+      
         window.location.href = '/admin';
-      }
-      else {
-        window.location.href = "/student"
-      }
+      
+     
     },
   });
 
   // Login Mutation
   const LoginMutation = useMutation({
     mutationFn: async (data) => {
-      const res = await axiosclient.post('/login', data);
+      const res = await axiosclient.post('/auth/login', data);
       console.log('Login response:', res.data);
       return res.data;
     },
@@ -93,12 +91,8 @@ export const ContextProvider = ({ children }) => {
       console.log('Login success:', data);
       setUserState(data.user);
       setToken(data.token);
-      if (data.user.is_admin === 1) {
+      
         window.location.href = '/admin';
-      }
-      else {
-        window.location.href = "/student"
-      }
       
     },
   });

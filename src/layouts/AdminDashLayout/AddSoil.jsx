@@ -18,6 +18,7 @@ function AddSoil() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     setLoading(true);
     const formData = new FormData();
     formData.append("type", e.target.type.value);

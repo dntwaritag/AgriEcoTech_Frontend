@@ -3,18 +3,16 @@ import logo from "/images/logo3.jpg";
 import { Link } from "react-router-dom";
 import { usestateContext } from "../context/ContextProvider";
 function Signup() {
-    const [first_name, setfirstName] = useState();
-    const [last_name, setLastName] = useState();
+    const [firstname, setfirstName] = useState();
+    const [lastname, setLastName] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-    const [city, setCity] = useState();
-    const [phone, setPhone] = useState();
-    const [country, setCountry] = useState();
+   
     const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState({
         email: "",
         password: "",
-        country: "",
+        
     });
     const { SignupMutation } = usestateContext();
     // const validateForm = () => {
@@ -44,8 +42,8 @@ function Signup() {
         // if (validateForm()) {
         // }
         const payload = {
-            first_name,
-            last_name,
+            firstname,
+            lastname,
             email,
             password,
          

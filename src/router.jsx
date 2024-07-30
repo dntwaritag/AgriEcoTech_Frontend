@@ -20,6 +20,7 @@ import AddWater from "./layouts/AdminDashLayout/AddWater";
 import EditWater from "./layouts/AdminDashLayout/EditWater";
 import AddDeasees from "./layouts/AdminDashLayout/AddDeasees";
 import Home from "./pages/Home";
+import HomeRemedies from "./pages/HomeRemedies";
 
 const router = createBrowserRouter([
   {
@@ -96,6 +97,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <App />,
+
       },
       {
         path: "/about",
@@ -105,6 +107,10 @@ const router = createBrowserRouter([
         path: "/product",
         element: <Product />,
       },
+      {
+        path:"/remedies",
+        element:<HomeRemedies/>
+      }
     ],
   },
 

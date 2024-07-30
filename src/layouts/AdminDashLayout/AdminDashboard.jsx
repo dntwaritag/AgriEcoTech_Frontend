@@ -32,26 +32,7 @@ function AdminDashBoard() {
     return "#8884d8"; // Default color for 0-10 registrations
   };
 
-  const researches = [
-    {
-      id:1,
-      title:"How to treat soils",
-      description:"lorem ipsum doresamnt we are ba htrol lorrems",
-      image:"/images/Agri11.jpg"
-    },
-    {
-      id:4,
-      title:"top Soild deases",
-      description:"lorem ipsum doresamnt we are ba htrol lorrems",
-      image:"/images/agri18.jpg"
-    },
-    {
-      id:3,
-      title:"Land Management",
-      description:"lorem ipsum doresamnt we are ba htrol lorrems",
-      image:"/images/agri7.jpeg"
-    }
-  ]
+
 
   const deseases = [
     {
@@ -79,12 +60,38 @@ function AdminDashBoard() {
     date:"12/9/2023"
 },
 
-
-  
-   
-    
 ];
 
+const [remedies, setRemedie] = useState([]); // Initialize as an empty array
+
+useEffect(() => {
+  fetchSoilData()
+}, []);
+
+const fetchSoilData = () => {
+  axiosclient.get('/remedie').then(({ data }) => {
+    console.log(data);
+    setRemedie(data.data);
+  });
+};
+const deleteSoil = (id) => {
+  axiosclient.delete(`/remedie/${id}`).then(() => {
+    // After successful deletion, fetch the updated soil data
+    fetchSoilData();
+    console.log('deleted successfully')
+  }).catch((error) => {
+    console.error("There was an error deleting the desease record!", error);
+  });
+};
+
+
+// Function to truncate text
+const truncateText = (text, length) => {
+if (text.length <= length) return text;
+return text.substring(0, length) + '...';
+};
+
+const maxLength = 100; // Set your desired maximum length
 
   return (
     <div className="admin-dashboard-wrapper">
@@ -183,12 +190,12 @@ function AdminDashBoard() {
         </div>
 
 <div className="reseach-body-dash">
-  {researches.map((item,index)=>(
-    <div className="resach-desc-dash">
+  {remedies.map((item,index)=>(
+    <div key={item._id} className="resach-desc-dash">
       <img src={item.image} alt="" />
       <div>
         <h6>{item.title}</h6>
-        <p>{item.description}</p>
+        <p dangerouslySetInnerHTML={{ __html: truncateText(item.description, maxLength) }}/>
       </div>
     </div>
   ))}

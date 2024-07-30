@@ -1,40 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import axiosclient from "../../axiosClient";
 
 function WaterManagement() {
-    const researches = [
-        {
-            id: 1,
-            source: "silt",
-            amount: "56ml",
-            frequency: "45HZ",
-            waterpH: "0.67l",
-            cost:"1400",
-            date:"12/9/2023"
-        },
-        {
-          id: 4,
-          source: "Rainfall",
-          amount: "45ml",
-          frequency: "75HZ",
-          waterpH: "0.89l",
-          cost:"170",
-          date:"12/9/2023"
-      },
-      {
-        id: 3,
-        source: "silt",
-        amount: "Musanze",
-        frequency: "12HZ",
-        waterpH: "0.67l",
-        cost:"200",
-        date:"12/9/2023"
-    },
-      
-       
-        
-    ];
+    const [diseases, setDeseases] = useState([]); // Initialize as an empty array
+
+    useEffect(() => {
+        fetchSoilData()
+    }, []);
+
+    const fetchSoilData = () => {
+        axiosclient.get('/water').then(({ data }) => {
+            console.log(data);
+            setDeseases(data.data);
+        });
+    };
+    const deleteSoil = (id) => {
+        axiosclient.delete(`/water/${id}`).then(() => {
+            // After successful deletion, fetch the updated soil data
+            fetchSoilData();
+            console.log('deleted successfully')
+        }).catch((error) => {
+            console.error("There was an error deleting the desease record!", error);
+        });
+    };
+
+
 
     return (
         <div className="admin-research-wrapper">
@@ -56,9 +48,9 @@ function WaterManagement() {
                     <th>Action</th>
                 </tr>
             <tbody>
-            {researches.map((item, index) => (
-                    <>
-                        <tr key={item.id}>
+            {diseases.map((item, index) => (
+                  
+                        <tr key={item._id}>
                            
                             <td>{item.source}</td>
                             <td>{item.amount}</td>
@@ -72,19 +64,19 @@ function WaterManagement() {
                         <div className="td-flex-desc">
                         </div>
                         <div className="td-flex-desc">
-                            <Link to={`/admin/edit-water/${item.id}`} className="edit-btn">
+                            <Link to={`/admin/edit-water/${item._id}`} className="edit-btn">
                                 <FaEdit />
                             </Link>
                         </div>
                         <div className="td-flex-desc">
-                            <button className="delete-btn">
-                                <FaTrash />
-                            </button>
+                        <button className="delete-btn" onClick={() => deleteSoil(item._id)}>
+                                                <FaTrash />
+                                            </button>
                         </div>
                     </div>
                             </td>
                         </tr>
-                    </>
+                   
                 ))}
             </tbody>
             </table>

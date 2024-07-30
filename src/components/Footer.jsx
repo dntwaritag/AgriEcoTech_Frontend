@@ -58,7 +58,7 @@ export default function Footer() {
                 </div>
             </div>
             <footer>
-                <p>Copyright © 2024 Pharmacy. All rights reserved.</p>
+                <p>Copyright © 2024 AgriEcotech. All rights reserved.</p>
             </footer>
         </div>
     );

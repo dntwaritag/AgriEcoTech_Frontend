@@ -1,7 +1,5 @@
-import { Editor } from "@tinymce/tinymce-react";
 import React, { useRef, useState } from "react";
 import { toast } from "react-toastify";
-
 import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 import axiosclient from "../../axiosClient";
@@ -9,81 +7,83 @@ import axiosclient from "../../axiosClient";
 function AddWater() {
   const editorRef = useRef(null);
   const [loading, setLoading] = useState(false);
+
   const showToastMessage = () => {
-    toast.success("water created successfully!", {
+    toast.success("Water usage data created successfully!", {
       position: "top-right",
-      style: { zIndex: 999999 }, // Set the z-index here
+      style: { zIndex: 999999 },
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const formData = new FormData();
-    formData.append("title", e.target.title.value);
-    formData.append("author", e.target.author.value);
-    formData.append("date", e.target.date.value);
-    formData.append("description", editorRef.current.getContent());
-    formData.append("image", e.target.image.files[0]);
+    const formData = {
+      source: e.target.source.value,
+      amount: e.target.amount.value,
+      frequency: e.target.frequency.value,
+      waterpH: e.target.waterpH.value,
+      cost: e.target.cost.value,
+      date: e.target.date.value,
+    };
     try {
-      const response = await axiosclient.post("/reseaches", formData, {
+      const response = await axiosclient.post("/water", formData, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "application/json",
         },
       });
       showToastMessage();
       setTimeout(() => {
-        // handleCourseModel();
-        window.location.href = "/admin/cms/researches";
+        window.location.href = "/admin/water";
       }, 3000);
       console.log("Response:", response.data);
     } catch (error) {
       console.error("Error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const log = () => {
-    if (editorRef.current) {
-      console.log(editorRef.current.getContent());
-    }
-  };
+  
   return (
-    <div className="add-reseach-wrapper">
+    <div className="add-research-wrapper">
       <div className="research-form-wrapper">
         <form onSubmit={handleSubmit}>
           <div className="add-course-header">
             <div>
-              <h5>Record water usageData</h5>
+              <h5>Record Water Usage Data</h5>
             </div>
             <Link to="/admin/water">
               <FaTimes
                 style={{ cursor: "pointer", fontSize: "18px", color: "black" }}
-                // onClick={handleCourseModel}
               />
             </Link>
           </div>
 
-          <label htmlFor="">Water source</label>
-          <select name="" id="">
-            <option value="ground water">ground water</option>
-            <option value=" surface water"> surface water</option>
-            <option value="rain water">rain water</option>
-            <option value="reclaimed water">reclaimed water</option>
+          <label htmlFor="source">Water Source</label>
+          <select name="source" required>
+            <option value="ground water">Ground Water</option>
+            <option value="surface water">Surface Water</option>
+            <option value="rain water">Rain Water</option>
+            <option value="reclaimed water">Reclaimed Water</option>
           </select>
 
-          <label htmlFor="">Irrigation Amount</label>
-          <input name="amount" type="text" placeholder="Irrigation amount" />
-          <label htmlFor="">Irrigation Frequency</label>
-          <input type="text" name="frequency" placeholder="Irrigation Frequency" />
-          <label htmlFor="">Water pH</label>
-          <input type="text" name="waterpH" placeholder="Water pH" />
-          <label htmlFor="">Cost</label>
-          <input type="text" placeholder="Cost" />
-          <label htmlFor=""> Date of Sampling</label>
-          <input type="date" name="date" />
-         
+          <label htmlFor="amount">Irrigation Amount</label>
+          <input name="amount" type="text" placeholder="Irrigation amount" required />
 
-          <button>Save</button>
+          <label htmlFor="frequency">Irrigation Frequency</label>
+          <input type="text" name="frequency" placeholder="Irrigation Frequency" required />
+
+          <label htmlFor="waterpH">Water pH</label>
+          <input type="text" name="waterpH" placeholder="Water pH" required />
+
+          <label htmlFor="cost">Cost</label>
+          <input type="text" name="cost" placeholder="Cost" required />
+
+          <label htmlFor="date">Date of Sampling</label>
+          <input type="date" name="date" required />
+
+          <button type="submit">{loading ? "Saving..." : "Save"}</button>
         </form>
       </div>
     </div>

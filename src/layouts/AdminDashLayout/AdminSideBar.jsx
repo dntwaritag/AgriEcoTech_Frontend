@@ -71,14 +71,11 @@ function AdminSideBar() {
         <p> <Link to='/admin/remedies'>Remedies</Link></p>
     </div>
 
-    <div className='sidebar-links'>
-        <span><FaUserAlt/></span>
-        <p> <Link to=''> My Profile</Link></p>
-    </div>
+  
   
     <div className='sidebar-links'>
         <span><FaSignOutAlt /></span>
-        <Link onClick={onlogout}> Signout</Link>
+        <Link to='/'> Signout</Link>
     </div>
             </div>
         </aside>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import thumb from "/images/thumb45.jpg";
-function About() {
+function About2() {
   return (
     <div className="feature-about-wrapper">
       <div className="feature-about-content1">
@@ -25,4 +25,4 @@ function About() {
   );
 }
 
-export default About;
+export default About2;

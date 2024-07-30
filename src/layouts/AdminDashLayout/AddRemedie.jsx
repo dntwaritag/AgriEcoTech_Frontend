@@ -26,7 +26,7 @@ function AddRemedie() {
     formData.append("description", editorRef.current.getContent());
     formData.append("image", e.target.image.files[0]);
     try {
-      const response = await axiosclient.post("/reseaches", formData, {
+      const response = await axiosclient.post("/remedie", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -34,7 +34,7 @@ function AddRemedie() {
       showToastMessage();
       setTimeout(() => {
         // handleCourseModel();
-        window.location.href = "/admin/cms/researches";
+        window.location.href = "/admin/remedies";
       }, 3000);
       console.log("Response:", response.data);
     } catch (error) {
@@ -97,7 +97,7 @@ function AddRemedie() {
           <label htmlFor="">  Remedie Photo</label>
           <input type="file" name="image" placeholder="choose file" />
        
-          <button>Save</button>
+          <button>{loading ? (<>loading...</>):(<>save</>)}</button>
         </form>
       </div>
     </div>

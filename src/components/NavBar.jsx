@@ -15,10 +15,10 @@ function Navbar() {
                     </li>
 
                     <li>
-                        <Link to="">About us</Link>
+                        <Link to="/about">About us</Link>
                     </li>
                     <li>
-                        <Link to="">Remedies</Link>
+                        <Link to="/remedies">Remedies</Link>
                     </li>
                   
                     <li>
