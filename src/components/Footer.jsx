@@ -25,10 +25,10 @@ export default function Footer() {
                 </div>
                 <div className="footer-content">
                     <h3>Quick Links</h3>
-                    <Link>About</Link>
-                    <Link>Remedies</Link>
-                    <Link>Login</Link>
-                    <Link>Signup</Link>
+                    <Link to='/about'>About</Link>
+                    <Link to='/remedies'>Remedies</Link>
+                    <Link to='/login'>Login</Link>
+                    <Link to='/signup'>Signup</Link>
                 </div>
                 <div className="footer-content">
                     <h3>services</h3>
@@ -50,8 +50,9 @@ export default function Footer() {
                     <div className="contact-icons">
                         <span>
                             <FaEnvelope />
+                            
                         </span>
-                        <p>info@denysNtwaritaganzwa.com</p>
+                        <p>info@Agriecotec.com</p>
                     </div>
                     {/* <div className="contact-icons">  <span><FaLocationDo /></span> 
           <p>Norrsken House Kigali, KN 78 St, Kigali, Rwanda</p></div> */}

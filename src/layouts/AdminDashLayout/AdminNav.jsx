@@ -11,9 +11,9 @@ const AdminNav = () => {
   
   return (
     <div className="Super-nav-wrapper">
-      <div className="bar-container">
-        <FaBars />
-      </div>
+       <div className="bar-container">
+        {/* <FaBars /> */}
+      </div> 
 
 
       <div className="super-icons-wrapper">

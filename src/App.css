@@ -181,7 +181,7 @@
 /* footer design */
 /* Footer design */
 .footer-wrapper {
-     background-color: var(--bs-white);
+     background-color: rgb(38, 121, 75);
     /* background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity)) ; */
     height: 80vh;
     padding-top: 40px;
@@ -209,27 +209,27 @@
     display: block;
 }
 .footer-content h3 {
-    color:var(--bs-dark);
+    color:var(--bs-white);
     font-size: 20px;
 }
 .footer-content p {
-    color: var(--bs-dark);
+    color: var(--bs-white);
     font-size: 15px;
 }
 .footer-content a {
-    color: var(--bs-dark);
+    color: var(--bs-white);
     text-decoration: none;
     gap: 12px;
 }
 .footer-content span {
-    color: var(--bs-dark);
+    color: var(--bs-white);
 }
 .contact-icons {
     display: flex;
     gap: 10px;
 }
 footer {
-    color: var(--bs-dark-rgb);
+    color: var(--bs-white);
     text-align: center;
     margin-top: 50px;
     padding-top: 30px;
@@ -312,10 +312,14 @@ font-size: 18px;
 .pharmacy-thumb-wrapper {
     width: 100%;
     height: 90vh;
+    background-color: black;
+    position: relative;
+    overflow: hidden;
 }
 .pharmacy-thumb-wrapper img {
     width: 100%;
-    height: 100%;
+    max-height: 90vh;
+    object-fit: cover;
 }
 .pharmacy-thumb1 {
     display: flex;
@@ -324,13 +328,15 @@ font-size: 18px;
     width: 50%;
     position: absolute;
     top: 30%;
-    padding-left: 50px;
+    padding-left: 70px;
 }
+
 .pharmacy-thumb1 h1{
     color: white;
      font-weight: bold; 
     text-transform: capitalize;
      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+
 }
 .pharmacy-thumb1 p{
     font-size: 20px;
@@ -338,12 +344,44 @@ font-size: 18px;
     font-weight: bold;
     /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); */
 }
+.remedie-thumb-wrapper {
+  width: 100%;
+  height: 70vh;
+  background-color: black;
+  position: relative;
+  overflow: hidden;
+}
+.remedie-thumb-wrapper img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: cover;
+  opacity: 0.5;
+}
+.remedie-thumb-wrapper h1{
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  right: 20%;
+  color: white;
+  text-transform: capitalize;
+}
+.remedie-detail-container{
+  background-color: var(--bs-light);
+  padding: 20px;
+}
+.remedies-body{
+  padding: 20px;
+border-radius: 7px;
+border: 1px solid lightgrey;
+
+}
 .start-phrmacy-btn{
     padding: 10px;
     background-color: mediumseagreen;
     color: white;
     border: 0;
     outline: 0;
+    text-decoration: none;
     width: 150px;
     border-radius: 7px;
 }

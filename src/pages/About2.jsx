@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import thumb from "/images/thumb45.jpg";
+import thumb from "/images/agri1.jpeg";
 function About2() {
   return (
     <div className="feature-about-wrapper">
@@ -16,7 +16,7 @@ function About2() {
           hardware components like IoT sensors and drones and software
           components like AI-based analytics tools
         </p>
-        <Link className="read-more-1">
+        <Link to='/about' className="read-more-1">
           {" "}
           Read More
         </Link>

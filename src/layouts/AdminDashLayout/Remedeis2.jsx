@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import research1 from "/images/agri6.jpeg";
-import research2 from "/images/agri7.jpeg";
-import research3 from "/images/agri18.jpg";
-import research4 from "/images/Agri11.jpg";
+
 import axiosclient from "../../axiosClient";
 function Remedies2() {
     const [diseases, setDeseases] = useState([]); // Initialize as an empty array
@@ -12,7 +9,6 @@ function Remedies2() {
     useEffect(() => {
       fetchSoilData()
     }, []);
-  
     const fetchSoilData = () => {
       axiosclient.get('/remedie').then(({ data }) => {
         console.log(data);
@@ -55,7 +51,7 @@ function Remedies2() {
                                
                             
                             <div className="Readmore-research">
-                                <Link>
+                                <Link to={`/remedies/${item._id}`}>
                                     Read more{" "}
                                     <span>
                                         <FaArrowRight />

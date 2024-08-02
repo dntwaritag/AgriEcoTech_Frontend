@@ -51,6 +51,7 @@ function AddRemedie() {
     <div className="add-reseach-wrapper">
       <div className="research-form-wrapper">
         <form onSubmit={handleSubmit}>
+          
           <div className="add-course-header">
             <div>
               <h5>Add new Remedie</h5>

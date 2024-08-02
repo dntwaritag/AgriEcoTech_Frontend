@@ -21,6 +21,8 @@ import EditWater from "./layouts/AdminDashLayout/EditWater";
 import AddDeasees from "./layouts/AdminDashLayout/AddDeasees";
 import Home from "./pages/Home";
 import HomeRemedies from "./pages/HomeRemedies";
+import RemedieDetailS from "./pages/RemedieDetail";
+import RemedieDetail from "./pages/RemedieDetail";
 
 const router = createBrowserRouter([
   {
@@ -110,6 +112,10 @@ const router = createBrowserRouter([
       {
         path:"/remedies",
         element:<HomeRemedies/>
+      },
+      {
+        path:"/remedies/:_id",
+        element:<RemedieDetail/>
       }
     ],
   },
