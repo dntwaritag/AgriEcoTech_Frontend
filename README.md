@@ -12,10 +12,11 @@ You can access the live application through the following link:
 
 1. **Visit the Application**: Go to [AgriEcoTech](https://agriecotech-smoky.vercel.app/).
 2. **Login or Get Started**:
-   - Click on "Get Started" or "Login."
+   - Click on "Get Started" or "Login." 
    - Use the following credentials to log in:
      - **Username**: user@user.com
      - **Password**: 12345
+Or Simply SIgnUp with your credidentials.
 
 ## Setup Instructions
 
