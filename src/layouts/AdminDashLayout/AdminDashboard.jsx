@@ -1,30 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { FaSort, FaUser, FaUserGroup } from "react-icons/fa6";
-import { GrBusinessService } from "react-icons/gr";
 
-import { BsThreeDotsVertical } from "react-icons/bs";
-
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  Cell,
-} from "recharts";
-
-
-import env from "../../env";
-import noPhoto from "/images/notPhoto.png";
 import axiosclient from "../../axiosClient";
 
 function AdminDashBoard() {
  
-
-
   const getBarColor = (count) => {
     // Customize your color logic here
     if (count > 20) return "#ff0000"; // Red for more than 20 registrations
@@ -151,8 +130,7 @@ const maxLength = 100; // Set your desired maximum length
           </div>
         </div>
       </div>
-    
-    
+  
       </div>
       
 <div className="student-reseach-wrapper">

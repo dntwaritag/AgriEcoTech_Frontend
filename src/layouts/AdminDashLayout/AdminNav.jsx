@@ -5,16 +5,16 @@ import { TiThLargeOutline } from "react-icons/ti";
 import notPhoto from "/images/notPhoto.png";
 import { Link } from "react-router-dom";
 
-const AdminNav = () => {
+const AdminNav = ({ toggleModal, isModalOpen }) => {
  
-
-  
   return (
-    <div className="Super-nav-wrapper">
-       <div className="bar-container">
-        {/* <FaBars /> */}
-      </div> 
-
+    <div   className={`Super-nav-wrapper ${
+      isModalOpen ? "sidebar-closed" : "sidebar-open"
+    }`}>
+      
+      <div className="menu-icon" onClick={toggleModal}>
+          <FaBars/>
+        </div>
 
       <div className="super-icons-wrapper">
         <div className="super-icons">

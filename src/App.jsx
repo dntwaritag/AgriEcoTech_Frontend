@@ -15,9 +15,9 @@ function App() {
     <>
     <Thumbnail/>
     <Service/>
+
     <About2/>
-    <Remedies2/>
-     
+    <Remedies2/> 
     </>
   )
 }

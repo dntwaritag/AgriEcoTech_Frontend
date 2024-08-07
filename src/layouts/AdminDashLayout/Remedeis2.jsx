@@ -61,6 +61,7 @@ function Remedies2() {
                         </div>
                     </div>
                         </>
+                        
                     ))}
                 
                 </div>

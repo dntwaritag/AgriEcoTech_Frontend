@@ -8,7 +8,7 @@ import { CiSettings } from 'react-icons/ci'
 
 import { SiCloudflareworkers } from 'react-icons/si'
 import { usestateContext } from '../../context/ContextProvider'
-function AdminSideBar() {
+function AdminSideBar({ isModalOpen, toggleModal }) {
     const { user, setToken, setUser } = usestateContext();
     const onlogout = (ev) => {
         localStorage.removeItem('token');
@@ -16,32 +16,11 @@ function AdminSideBar() {
         setToken(null); // Clear the token in the context
       };
 
-      const CustomAccordion = ({ title, children }) => {
-        const [isOpen, setIsOpen] = useState(false);
-    
-        const toggleAccordion = () => {
-            setIsOpen(!isOpen);
-        };
-    
-        return (
-            <div className="myaccordion-item">
-                <div className="myaccordion-header" onClick={toggleAccordion}>
-                <span><CiSettings /></span>
-                    {title} 
-                  <span><FaAngleDown/></span>
-                </div>
-                {isOpen && (
-                    <div className="myaccordion-body">
-                        {children}
-                    </div>
-                )}
-            </div>
-        );
-    };
+   
      
   return (
     <div>
-         <aside className='employer-aside'>
+         <aside className={`employer-aside ${isModalOpen ? "open" : "closed"}`}>
          <div className="side-bar-header">
           <img src={opina} alt="" />
         </div> 
@@ -49,33 +28,30 @@ function AdminSideBar() {
 
     <div className='sidebar-links'>
         <span><FaHome/></span>
-        <p> <Link to='/admin'>Dashboard</Link></p>
+        <p> <Link onClick={toggleModal} to='/admin'>Dashboard</Link></p>
     </div>
     <div className='sidebar-links'>
         <span><FaBookJournalWhills/></span>
-        <p> <Link to='/admin/soil'>Soil Management</Link></p>
+        <p> <Link onClick={toggleModal} to='/admin/soil'>Soil Management</Link></p>
     </div>
     
     <div className='sidebar-links'>
         <span><FaUserAlt/></span>
-        <p> <Link to='/admin/deseases'>Crops Deseases</Link></p>
+        <p> <Link onClick={toggleModal} to='/admin/deseases'>Crops Deseases</Link></p>
     </div>
    
     <div className='sidebar-links'>
         <span><FaUserAlt/></span>
-        <p><Link to="/admin/water"> Water Management</Link></p>
+        <p><Link onClick={toggleModal} to="/admin/water"> Water Management</Link></p>
     </div>
   
     <div className='sidebar-links'>
         <span><SiCloudflareworkers /></span>
-        <p> <Link to='/admin/remedies'>Remedies</Link></p>
+        <p> <Link onClick={toggleModal} to='/admin/remedies'>Remedies</Link></p>
     </div>
-
-  
-  
     <div className='sidebar-links'>
         <span><FaSignOutAlt /></span>
-        <Link to='/'> Signout</Link>
+        <Link onClick={toggleModal} to='/'> Signout</Link>
     </div>
             </div>
         </aside>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AdminNav from "./AdminNav";
 import AdminSideBar from "./AdminSideBar";
 import { Navigate, Outlet } from "react-router-dom";
@@ -8,10 +8,14 @@ function AdminLayout() {
   // if (!user || user.role !== "admin") {
   //   return <Navigate to="/" />;
   // }
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   return (
     <div className="Admin-Layout-wrapper">
-      <AdminNav />
-      <AdminSideBar />
+      <AdminNav isModalOpen={isModalOpen}  toggleModal={toggleModal} />
+      <AdminSideBar toggleModal={toggleModal} isModalOpen={isModalOpen} />
       <div className="outlet-wrapper">
         <Outlet />
       </div>
